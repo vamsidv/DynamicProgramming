@@ -27,9 +27,9 @@ public class TilingProblem {
 		if ((n >= 0) && (n <= 2)) {
 			return n;
 		}
-		int a = 0;
-		int b = 1;
-		int c = 2;
+		long a = 0;
+		long b = 1;
+		long c = 2;
 		for (int i=3;i<=n;i++) {
 			a = b;
 			b = c;
