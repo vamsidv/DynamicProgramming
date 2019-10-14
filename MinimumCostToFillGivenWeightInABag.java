@@ -47,6 +47,30 @@ public class MinimumCostToFillGivenWeightInABag {
 	}
 
 	private static long CalcResult(int[] data, int n, int w) {
-		return 0;
+		long[] dp = new long[w+1];
+		dp[0] = 0;
+		for (int i=0;i<n && i<w;i++) {
+			dp[i+1] = data[i]; 
+		}
+		for (int i=n;i<=w;i++) {
+			dp[i] = -1;
+		}
+		boolean changed = true;
+		long temp;
+		while (changed) {
+			changed = false;
+			for (int i=0;i<n;i++) {
+				if (data[i] != -1) {
+					for (int j=0;j<=(w-i-1);j++) {
+						if (dp[j] != -1) {
+							temp = dp[j+i+1];
+							dp[j+i+1] = (dp[j+i+1] == -1) ? (dp[j] + data[i]) : ((dp[j+i+1] < (dp[j] + data[i])) ? dp[j+i+1] : (dp[j] + data[i]));
+							changed = (temp != dp[j+i+1]) ? true : false;
+						}
+					}
+				}
+			}
+		}
+		return dp[w];
 	}
 }
