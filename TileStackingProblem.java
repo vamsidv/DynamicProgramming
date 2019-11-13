@@ -85,7 +85,7 @@ public class TileStackingProblem {
 		 * We can observe that to we are considering the previous columns values. 
 		 * This is because we were not allowing any repetitions.
 		 * If we allow 2 repetitions, we would consider 2 columns. Extending it to any number of repetitions.
-		 * dp[i][j] = sum(sum(dp[i-x][j-y])) where x = 1 to i and y = 1 to j
+		 * dp[i][j] = sum(sum(dp[i-x][j-y])) + 1   where x = 1 to i and y = 1 to j
 		 * dp[i][j] = No. of sequences with bottom tower size = i and height = j
 		 * dp[0][i] = 1		No. of sequences with bottom tower size = 1 and height = i
 		 * dp[i][0] = 1		No. of sequences with bottom tower size = i and height = 1
